@@ -1,0 +1,24 @@
+# Claude Code local config (preview launch config etc.)
+.claude/
+
+# OS cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors / IDEs
+.idea/
+.vscode/
+*.iml
+*.swp
+*~
+
+# Python
+__pycache__/
+*.pyc
+
+# Logs / temp
+*.log
+
+# NOTE: course-data.json is intentionally committed — the website (and
+# GitHub Pages) needs it at runtime. Regenerate it with: python build-site.py

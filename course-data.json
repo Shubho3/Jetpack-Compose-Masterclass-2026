@@ -1,0 +1,823 @@
+{
+  "title": "Jetpack Compose Masterclass — 2026 Edition",
+  "nav": [
+    {
+      "label": "Course",
+      "children": [
+        {
+          "title": "Home",
+          "path": "README.md"
+        },
+        {
+          "title": "Authoring Guide",
+          "path": "AUTHORING-GUIDE.md"
+        },
+        {
+          "title": "Curriculum",
+          "path": "course/curriculum.md"
+        },
+        {
+          "title": "Learning Path",
+          "path": "course/learning-path.md"
+        },
+        {
+          "title": "Weekly Study Plan",
+          "path": "course/weekly-study-plan.md"
+        }
+      ]
+    },
+    {
+      "label": "Modules",
+      "children": [
+        {
+          "title": "Module 01 — Introduction to Modern Android UI",
+          "path": "modules/module-01-introduction/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — The Evolution of Android UI",
+              "path": "modules/module-01-introduction/01-evolution-of-android-ui.md"
+            },
+            {
+              "title": "Lesson 02 — Imperative vs Declarative UI",
+              "path": "modules/module-01-introduction/02-imperative-vs-declarative.md"
+            },
+            {
+              "title": "Lesson 03 — Compose vs XML, Head to Head",
+              "path": "modules/module-01-introduction/03-compose-vs-xml.md"
+            },
+            {
+              "title": "Lesson 04 — Why Google Built Compose",
+              "path": "modules/module-01-introduction/04-why-google-built-compose.md"
+            },
+            {
+              "title": "Lesson 05 — How Compose Works",
+              "path": "modules/module-01-introduction/05-how-compose-works.md"
+            },
+            {
+              "title": "Lesson 06 — The Declarative Mindset & Misconceptions",
+              "path": "modules/module-01-introduction/06-declarative-mindset-misconceptions.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 02 — Basic Layouts & Responsive Design",
+          "path": "modules/module-02-layouts/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — Layout Principles & Constraint Thinking",
+              "path": "modules/module-02-layouts/01-layout-principles.md"
+            },
+            {
+              "title": "Lesson 02 — Column, Row, Box",
+              "path": "modules/module-02-layouts/02-column-row-box.md"
+            },
+            {
+              "title": "Lesson 03 — Flow Layouts",
+              "path": "modules/module-02-layouts/03-flow-layouts.md"
+            },
+            {
+              "title": "Lesson 04 — Lazy Lists",
+              "path": "modules/module-02-layouts/04-lazy-lists.md"
+            },
+            {
+              "title": "Lesson 05 — Lazy Grids & Staggered Grids",
+              "path": "modules/module-02-layouts/05-lazy-grids.md"
+            },
+            {
+              "title": "Lesson 06 — Scaffold & App Structure",
+              "path": "modules/module-02-layouts/06-scaffold-app-structure.md"
+            },
+            {
+              "title": "Lesson 07 — Window Size Classes & Adaptive UI",
+              "path": "modules/module-02-layouts/07-window-size-classes.md"
+            },
+            {
+              "title": "Lesson 08 — Foldables, Tablets & Desktop",
+              "path": "modules/module-02-layouts/08-foldables-tablets-desktop.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 03 — State Management",
+          "path": "modules/module-03-state-management/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — What is State?",
+              "path": "modules/module-03-state-management/01-what-is-state.md"
+            },
+            {
+              "title": "Lesson 02 — remember & mutableStateOf",
+              "path": "modules/module-03-state-management/02-remember-mutablestate.md"
+            },
+            {
+              "title": "Lesson 03 — rememberSaveable",
+              "path": "modules/module-03-state-management/03-remembersaveable.md"
+            },
+            {
+              "title": "Lesson 04 — State Hoisting",
+              "path": "modules/module-03-state-management/04-state-hoisting.md"
+            },
+            {
+              "title": "Lesson 05 — UDF, MVI & MVVM",
+              "path": "modules/module-03-state-management/05-udf-mvi-mvvm.md"
+            },
+            {
+              "title": "Lesson 06 — Advanced State",
+              "path": "modules/module-03-state-management/06-advanced-state.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 04 — Modifiers Mastery",
+          "path": "modules/module-04-modifiers/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — Why Modifiers Exist & the Chain",
+              "path": "modules/module-04-modifiers/01-why-modifiers-exist.md"
+            },
+            {
+              "title": "Lesson 02 — Modifier Order Matters",
+              "path": "modules/module-04-modifiers/02-modifier-order-matters.md"
+            },
+            {
+              "title": "Lesson 03 — Layout & Visual Modifiers",
+              "path": "modules/module-04-modifiers/03-layout-visual-modifiers.md"
+            },
+            {
+              "title": "Lesson 04 — clickable & Interaction Sources",
+              "path": "modules/module-04-modifiers/04-clickable-interaction-sources.md"
+            },
+            {
+              "title": "Lesson 05 — Focus Management",
+              "path": "modules/module-04-modifiers/05-focus-management.md"
+            },
+            {
+              "title": "Lesson 06 — draggable & pointerInput",
+              "path": "modules/module-04-modifiers/06-draggable-pointerinput.md"
+            },
+            {
+              "title": "Lesson 07 — Nested Scroll",
+              "path": "modules/module-04-modifiers/07-nested-scroll.md"
+            },
+            {
+              "title": "Lesson 08 — Custom Modifier Factories",
+              "path": "modules/module-04-modifiers/08-custom-modifier-factories.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 05 — Measurements, Advanced Layouts & Custom Modifiers",
+          "path": "modules/module-05-custom-layouts/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — The Layout Phase & Constraints",
+              "path": "modules/module-05-custom-layouts/01-layout-phase-and-constraints.md"
+            },
+            {
+              "title": "Lesson 02 — Intrinsic Measurements",
+              "path": "modules/module-05-custom-layouts/02-intrinsic-measurements.md"
+            },
+            {
+              "title": "Lesson 03 — BoxWithConstraints",
+              "path": "modules/module-05-custom-layouts/03-boxwithconstraints.md"
+            },
+            {
+              "title": "Lesson 04 — onSizeChanged & onGloballyPositioned",
+              "path": "modules/module-05-custom-layouts/04-onsizechanged-and-ongloballypositioned.md"
+            },
+            {
+              "title": "Lesson 05 — Custom Layout",
+              "path": "modules/module-05-custom-layouts/05-custom-layout.md"
+            },
+            {
+              "title": "Lesson 06 — SubcomposeLayout",
+              "path": "modules/module-05-custom-layouts/06-subcomposelayout.md"
+            },
+            {
+              "title": "Lesson 07 — Custom Modifier.Node",
+              "path": "modules/module-05-custom-layouts/07-custom-modifier-node.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 06 — Side Effects",
+          "path": "modules/module-06-side-effects/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — Why Side Effects Exist",
+              "path": "modules/module-06-side-effects/01-why-side-effects-exist.md"
+            },
+            {
+              "title": "Lesson 02 — LaunchedEffect & Keys",
+              "path": "modules/module-06-side-effects/02-launchedeffect-and-keys.md"
+            },
+            {
+              "title": "Lesson 03 — rememberCoroutineScope",
+              "path": "modules/module-06-side-effects/03-remembercoroutinescope.md"
+            },
+            {
+              "title": "Lesson 04 — DisposableEffect",
+              "path": "modules/module-06-side-effects/04-disposableeffect.md"
+            },
+            {
+              "title": "Lesson 05 — SideEffect & rememberUpdatedState",
+              "path": "modules/module-06-side-effects/05-sideeffect-and-rememberupdatedstate.md"
+            },
+            {
+              "title": "Lesson 06 — produceState",
+              "path": "modules/module-06-side-effects/06-producestate.md"
+            },
+            {
+              "title": "Lesson 07 — derivedStateOf",
+              "path": "modules/module-06-side-effects/07-derivedstateof.md"
+            },
+            {
+              "title": "Lesson 08 — snapshotFlow",
+              "path": "modules/module-06-side-effects/08-snapshotflow.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 07 — CompositionLocal",
+          "path": "modules/module-07-compositionlocal/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — Built-in CompositionLocals",
+              "path": "modules/module-07-compositionlocal/01-built-in-compositionlocals.md"
+            },
+            {
+              "title": "Lesson 02 — compositionLocalOf vs staticCompositionLocalOf",
+              "path": "modules/module-07-compositionlocal/02-compositionlocalof-vs-static.md"
+            },
+            {
+              "title": "Lesson 03 — Creating & providing custom locals",
+              "path": "modules/module-07-compositionlocal/03-creating-providing-custom-locals.md"
+            },
+            {
+              "title": "Lesson 04 — CompositionLocal vs DI vs params",
+              "path": "modules/module-07-compositionlocal/04-compositionlocal-vs-di-vs-params.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 08 — Compose Canvas & Graphics",
+          "path": "modules/module-08-canvas-graphics/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — The Draw Phase & DrawScope",
+              "path": "modules/module-08-canvas-graphics/01-draw-phase-drawscope.md"
+            },
+            {
+              "title": "Lesson 02 — Shapes, Paths & Text",
+              "path": "modules/module-08-canvas-graphics/02-shapes-paths-text.md"
+            },
+            {
+              "title": "Lesson 03 — graphicsLayer & Transforms",
+              "path": "modules/module-08-canvas-graphics/03-graphicslayer-transforms.md"
+            },
+            {
+              "title": "Lesson 04 — Building a Custom Chart",
+              "path": "modules/module-08-canvas-graphics/04-custom-chart.md"
+            },
+            {
+              "title": "Lesson 05 — Vector Graphics",
+              "path": "modules/module-08-canvas-graphics/05-vector-graphics.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 09 — Material 3 Theming",
+          "path": "modules/module-09-material3-theming/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — The M3 Theming Model",
+              "path": "modules/module-09-material3-theming/01-the-m3-theming-model.md"
+            },
+            {
+              "title": "Lesson 02 — Color Roles & Schemes",
+              "path": "modules/module-09-material3-theming/02-color-roles-schemes.md"
+            },
+            {
+              "title": "Lesson 03 — Dynamic Color (Material You)",
+              "path": "modules/module-09-material3-theming/03-dynamic-color-material-you.md"
+            },
+            {
+              "title": "Lesson 04 — Typography System",
+              "path": "modules/module-09-material3-theming/04-typography-system.md"
+            },
+            {
+              "title": "Lesson 05 — Shape System",
+              "path": "modules/module-09-material3-theming/05-shape-system.md"
+            },
+            {
+              "title": "Lesson 06 — Light/Dark & Custom Themes",
+              "path": "modules/module-09-material3-theming/06-light-dark-custom-themes.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 10 — Animations Masterclass",
+          "path": "modules/module-10-animations/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — animate*AsState",
+              "path": "modules/module-10-animations/01-animate-as-state.md"
+            },
+            {
+              "title": "Lesson 02 — AnimatedVisibility",
+              "path": "modules/module-10-animations/02-animatedvisibility.md"
+            },
+            {
+              "title": "Lesson 03 — AnimatedContent",
+              "path": "modules/module-10-animations/03-animatedcontent.md"
+            },
+            {
+              "title": "Lesson 04 — Animatable & gestures",
+              "path": "modules/module-10-animations/04-animatable-and-gestures.md"
+            },
+            {
+              "title": "Lesson 05 — Infinite transitions",
+              "path": "modules/module-10-animations/05-infinite-transitions.md"
+            },
+            {
+              "title": "Lesson 06 — updateTransition",
+              "path": "modules/module-10-animations/06-updatetransition.md"
+            },
+            {
+              "title": "Lesson 07 — Shared element transitions",
+              "path": "modules/module-10-animations/07-shared-element-transitions.md"
+            },
+            {
+              "title": "Lesson 08 — LookaheadScope",
+              "path": "modules/module-10-animations/08-lookaheadscope.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 11 — Performance Optimization",
+          "path": "modules/module-11-performance/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — The Cost Model",
+              "path": "modules/module-11-performance/01-the-cost-model.md"
+            },
+            {
+              "title": "Lesson 02 — Profiling",
+              "path": "modules/module-11-performance/02-profiling.md"
+            },
+            {
+              "title": "Lesson 03 — Stability & Skipping (applied)",
+              "path": "modules/module-11-performance/03-stability-skipping.md"
+            },
+            {
+              "title": "Lesson 04 — Lazy List Optimization",
+              "path": "modules/module-11-performance/04-lazy-list-optimization.md"
+            },
+            {
+              "title": "Lesson 05 — Deferring State Reads",
+              "path": "modules/module-11-performance/05-deferring-state-reads.md"
+            },
+            {
+              "title": "Lesson 06 — Image Loading",
+              "path": "modules/module-11-performance/06-image-loading.md"
+            },
+            {
+              "title": "Lesson 07 — Overdraw & Main-Thread Safety",
+              "path": "modules/module-11-performance/07-overdraw-main-thread.md"
+            },
+            {
+              "title": "Lesson 08 — movableContentOf",
+              "path": "modules/module-11-performance/08-movablecontentof.md"
+            },
+            {
+              "title": "Lesson 09 — Baseline Profiles & Macrobenchmark",
+              "path": "modules/module-11-performance/09-baseline-profiles-macrobenchmark.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 12 — Jetpack Compose Internals",
+          "path": "modules/module-12-internals/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — The Compose Compiler",
+              "path": "modules/module-12-internals/01-the-compose-compiler.md"
+            },
+            {
+              "title": "Lesson 02 — The Runtime & Slot Table",
+              "path": "modules/module-12-internals/02-runtime-slot-table.md"
+            },
+            {
+              "title": "Lesson 03 — Groups & Positional Memoization",
+              "path": "modules/module-12-internals/03-groups-positional-memoization.md"
+            },
+            {
+              "title": "Lesson 04 — The Snapshot System",
+              "path": "modules/module-12-internals/04-snapshot-system.md"
+            },
+            {
+              "title": "Lesson 05 — Stability & Immutability",
+              "path": "modules/module-12-internals/05-stability-immutability.md"
+            },
+            {
+              "title": "Lesson 06 — How Skipping Works",
+              "path": "modules/module-12-internals/06-how-skipping-works.md"
+            },
+            {
+              "title": "Lesson 07 — The Frame Lifecycle",
+              "path": "modules/module-12-internals/07-frame-lifecycle.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 13 — Architecture for Real Apps",
+          "path": "modules/module-13-architecture/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — Clean Architecture Layers",
+              "path": "modules/module-13-architecture/01-clean-architecture-layers.md"
+            },
+            {
+              "title": "Lesson 02 — MVVM in Compose",
+              "path": "modules/module-13-architecture/02-mvvm-in-compose.md"
+            },
+            {
+              "title": "Lesson 03 — MVI & Unidirectional State",
+              "path": "modules/module-13-architecture/03-mvi-unidirectional-state.md"
+            },
+            {
+              "title": "Lesson 04 — Repository Pattern",
+              "path": "modules/module-13-architecture/04-repository-pattern.md"
+            },
+            {
+              "title": "Lesson 05 — Use Cases / Interactors",
+              "path": "modules/module-13-architecture/05-use-cases-interactors.md"
+            },
+            {
+              "title": "Lesson 06 — Feature Modularization",
+              "path": "modules/module-13-architecture/06-feature-modularization.md"
+            },
+            {
+              "title": "Lesson 07 — Offline-First",
+              "path": "modules/module-13-architecture/07-offline-first.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 14 — Testing Jetpack Compose",
+          "path": "modules/module-14-testing/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — The Testing Pyramid for Compose",
+              "path": "modules/module-14-testing/01-testing-pyramid.md"
+            },
+            {
+              "title": "Lesson 02 — Unit Testing State",
+              "path": "modules/module-14-testing/02-unit-testing-state.md"
+            },
+            {
+              "title": "Lesson 03 — Compose UI Testing",
+              "path": "modules/module-14-testing/03-compose-ui-testing.md"
+            },
+            {
+              "title": "Lesson 04 — Integration Testing",
+              "path": "modules/module-14-testing/04-integration-testing.md"
+            },
+            {
+              "title": "Lesson 05 — Screenshot Testing",
+              "path": "modules/module-14-testing/05-screenshot-testing.md"
+            },
+            {
+              "title": "Lesson 06 — Macrobenchmark Testing",
+              "path": "modules/module-14-testing/06-macrobenchmark-testing.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 15 — Modern Android Development 2026",
+          "path": "modules/module-15-modern-android-2026/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — Kotlin 2.x & the K2 Compiler",
+              "path": "modules/module-15-modern-android-2026/01-kotlin-2-k2-compiler.md"
+            },
+            {
+              "title": "Lesson 02 — Compose Multiplatform",
+              "path": "modules/module-15-modern-android-2026/02-compose-multiplatform.md"
+            },
+            {
+              "title": "Lesson 03 — Adaptive Across Form Factors",
+              "path": "modules/module-15-modern-android-2026/03-adaptive-form-factors.md"
+            },
+            {
+              "title": "Lesson 04 — Wear OS Compose",
+              "path": "modules/module-15-modern-android-2026/04-wear-os-compose.md"
+            },
+            {
+              "title": "Lesson 05 — Desktop Compose",
+              "path": "modules/module-15-modern-android-2026/05-desktop-compose.md"
+            },
+            {
+              "title": "Lesson 06 — Android XR",
+              "path": "modules/module-15-modern-android-2026/06-android-xr.md"
+            },
+            {
+              "title": "Lesson 07 — AI-Native Applications",
+              "path": "modules/module-15-modern-android-2026/07-ai-native-applications.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 16 — AI-Powered Android Development",
+          "path": "modules/module-16-ai-powered-dev/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — What Agentic AI Is",
+              "path": "modules/module-16-ai-powered-dev/01-what-agentic-ai-is.md"
+            },
+            {
+              "title": "Lesson 02 — AI Coding Agents",
+              "path": "modules/module-16-ai-powered-dev/02-ai-coding-agents.md"
+            },
+            {
+              "title": "Lesson 03 — The Planner → Architect → Coder → Reviewer → Human Loop",
+              "path": "modules/module-16-ai-powered-dev/03-planner-architect-coder-reviewer-loop.md"
+            },
+            {
+              "title": "Lesson 04 — Multi-Agent Workflows",
+              "path": "modules/module-16-ai-powered-dev/04-multi-agent-workflows.md"
+            },
+            {
+              "title": "Lesson 05 — Automated Refactoring",
+              "path": "modules/module-16-ai-powered-dev/05-automated-refactoring.md"
+            },
+            {
+              "title": "Lesson 06 — Automated Testing & Architecture Generation",
+              "path": "modules/module-16-ai-powered-dev/06-automated-testing-and-architecture-generation.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 17 — Code Quality Engineering",
+          "path": "modules/module-17-code-quality/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — Clean Code in Kotlin/Compose",
+              "path": "modules/module-17-code-quality/01-clean-code.md"
+            },
+            {
+              "title": "Lesson 02 — SOLID for Android",
+              "path": "modules/module-17-code-quality/02-solid-for-android.md"
+            },
+            {
+              "title": "Lesson 03 — KISS, DRY, YAGNI",
+              "path": "modules/module-17-code-quality/03-kiss-dry-yagni.md"
+            },
+            {
+              "title": "Lesson 04 — Compose Code Smells",
+              "path": "modules/module-17-code-quality/04-compose-code-smells.md"
+            },
+            {
+              "title": "Lesson 05 — Static Analysis",
+              "path": "modules/module-17-code-quality/05-static-analysis.md"
+            },
+            {
+              "title": "Lesson 06 — AI-Powered Code Review",
+              "path": "modules/module-17-code-quality/06-ai-powered-code-review.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 18 — Security for Android Apps",
+          "path": "modules/module-18-security/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — The Android Security Model",
+              "path": "modules/module-18-security/01-android-security-model.md"
+            },
+            {
+              "title": "Lesson 02 — Secure Storage",
+              "path": "modules/module-18-security/02-secure-storage.md"
+            },
+            {
+              "title": "Lesson 03 — Encryption",
+              "path": "modules/module-18-security/03-encryption.md"
+            },
+            {
+              "title": "Lesson 04 — API Security",
+              "path": "modules/module-18-security/04-api-security.md"
+            },
+            {
+              "title": "Lesson 05 — Authentication & Authorization",
+              "path": "modules/module-18-security/05-authentication-authorization.md"
+            },
+            {
+              "title": "Lesson 06 — OWASP Mobile Top 10",
+              "path": "modules/module-18-security/06-owasp-mobile-top-10.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 19 — Build a Production App (Capstone)",
+          "path": "modules/module-19-production-app/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — Project & Module Setup",
+              "path": "modules/module-19-production-app/01-project-module-setup.md"
+            },
+            {
+              "title": "Lesson 02 — Data Layer (Room + Retrofit + Repository)",
+              "path": "modules/module-19-production-app/02-data-layer.md"
+            },
+            {
+              "title": "Lesson 03 — Domain Layer (Use Cases + Models)",
+              "path": "modules/module-19-production-app/03-domain-layer.md"
+            },
+            {
+              "title": "Lesson 04 — UI Layer (Compose + MVI + Navigation)",
+              "path": "modules/module-19-production-app/04-ui-layer.md"
+            },
+            {
+              "title": "Lesson 05 — Dependency Injection (Hilt Across Modules)",
+              "path": "modules/module-19-production-app/05-dependency-injection.md"
+            },
+            {
+              "title": "Lesson 06 — Background Work (WorkManager Sync)",
+              "path": "modules/module-19-production-app/06-background-work.md"
+            },
+            {
+              "title": "Lesson 07 — Testing (Unit · UI · Screenshot · Macrobenchmark)",
+              "path": "modules/module-19-production-app/07-testing.md"
+            },
+            {
+              "title": "Lesson 08 — CI/CD & Monitoring",
+              "path": "modules/module-19-production-app/08-ci-cd-monitoring.md"
+            }
+          ]
+        },
+        {
+          "title": "Module 20 — Career & Interview Preparation",
+          "path": "modules/module-20-career-interview/README.md",
+          "children": [
+            {
+              "title": "Lesson 01 — The Android Interview Roadmap",
+              "path": "modules/module-20-career-interview/01-the-android-interview-roadmap.md"
+            },
+            {
+              "title": "Lesson 02 — Compose Question Bank",
+              "path": "modules/module-20-career-interview/02-compose-question-bank.md"
+            },
+            {
+              "title": "Lesson 03 — Kotlin & Coroutines Questions",
+              "path": "modules/module-20-career-interview/03-kotlin-coroutines-questions.md"
+            },
+            {
+              "title": "Lesson 04 — System Design for Android",
+              "path": "modules/module-20-career-interview/04-system-design-for-android.md"
+            },
+            {
+              "title": "Lesson 05 — Architecture Discussions",
+              "path": "modules/module-20-career-interview/05-architecture-discussions.md"
+            },
+            {
+              "title": "Lesson 06 — AI-Era Android Skills",
+              "path": "modules/module-20-career-interview/06-ai-era-android-skills.md"
+            },
+            {
+              "title": "Lesson 07 — Behavioral & the Offer",
+              "path": "modules/module-20-career-interview/07-behavioral-and-the-offer.md"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "Deliverables",
+      "children": [
+        {
+          "title": "Overview",
+          "path": "deliverables/README.md"
+        },
+        {
+          "title": "Cheat Sheets",
+          "children": [
+            {
+              "title": "Overview",
+              "path": "deliverables/cheat-sheets/README.md"
+            },
+            {
+              "title": "Animations — Cheat Sheet",
+              "path": "deliverables/cheat-sheets/animations.md"
+            },
+            {
+              "title": "Internals — Cheat Sheet",
+              "path": "deliverables/cheat-sheets/internals.md"
+            },
+            {
+              "title": "Modifiers — Cheat Sheet",
+              "path": "deliverables/cheat-sheets/modifiers.md"
+            },
+            {
+              "title": "Performance — Cheat Sheet",
+              "path": "deliverables/cheat-sheets/performance.md"
+            },
+            {
+              "title": "Side Effects — Cheat Sheet",
+              "path": "deliverables/cheat-sheets/side-effects.md"
+            },
+            {
+              "title": "State — Cheat Sheet",
+              "path": "deliverables/cheat-sheets/state.md"
+            },
+            {
+              "title": "Testing — Cheat Sheet",
+              "path": "deliverables/cheat-sheets/testing.md"
+            }
+          ]
+        },
+        {
+          "title": "Interview Prep",
+          "children": [
+            {
+              "title": "Overview",
+              "path": "deliverables/interview-prep/README.md"
+            },
+            {
+              "title": "Behavioral & The Offer — STAR, Leveling & Negotiation",
+              "path": "deliverables/interview-prep/behavioral.md"
+            },
+            {
+              "title": "Kotlin, Coroutines & Flow — Language & Concurrency Q&A",
+              "path": "deliverables/interview-prep/kotlin-coroutines.md"
+            },
+            {
+              "title": "Mock Interview Scripts — Run an AI Mock + Self-Grade",
+              "path": "deliverables/interview-prep/mock-interview-scripts.md"
+            },
+            {
+              "title": "The Compose & Android Question Bank",
+              "path": "deliverables/interview-prep/question-bank.md"
+            },
+            {
+              "title": "Android System Design — Framework & Worked Examples",
+              "path": "deliverables/interview-prep/system-design.md"
+            }
+          ]
+        },
+        {
+          "title": "Capstone Project",
+          "children": [
+            {
+              "title": "Overview",
+              "path": "deliverables/capstone-project/README.md"
+            },
+            {
+              "title": "Capstone — Architecture",
+              "path": "deliverables/capstone-project/architecture.md"
+            },
+            {
+              "title": "Capstone — Build Milestones (8 Phases)",
+              "path": "deliverables/capstone-project/milestones.md"
+            },
+            {
+              "title": "Capstone — Product Brief & Acceptance Criteria",
+              "path": "deliverables/capstone-project/spec.md"
+            }
+          ]
+        },
+        {
+          "title": "AI-Assisted Learning Workflows — use AI to *learn*, not to skip learning",
+          "path": "deliverables/ai-assisted-learning-workflows.md"
+        },
+        {
+          "title": "Assignments — one per module, built for a cohort",
+          "path": "deliverables/assignments.md"
+        },
+        {
+          "title": "Certification Exam — Jetpack Compose Masterclass (2026 Edition)",
+          "path": "deliverables/certification-exam.md"
+        },
+        {
+          "title": "Enterprise Best Practices — Compose in a real team, at scale",
+          "path": "deliverables/enterprise-best-practices.md"
+        },
+        {
+          "title": "Final Assessment — Jetpack Compose Masterclass (2026 Edition)",
+          "path": "deliverables/final-assessment.md"
+        },
+        {
+          "title": "Mind Maps — the whole course as pictures",
+          "path": "deliverables/mind-maps.md"
+        },
+        {
+          "title": "Practice Projects — the full build catalog",
+          "path": "deliverables/practice-projects.md"
+        },
+        {
+          "title": "Recommended Resources",
+          "path": "deliverables/resources.md"
+        }
+      ]
+    }
+  ]
+}

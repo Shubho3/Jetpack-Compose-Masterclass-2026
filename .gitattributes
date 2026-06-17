@@ -1,0 +1,12 @@
+# Consistent line endings across platforms
+* text=auto eol=lf
+
+# Windows scripts keep CRLF
+*.bat text eol=crlf
+
+# Binaries
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.pdf binary

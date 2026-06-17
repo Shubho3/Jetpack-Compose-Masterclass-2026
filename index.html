@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jetpack Compose Masterclass — 2026 Edition</title>
+<link id="hljs-theme" rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11/styles/github-dark.min.css" />
+<style>
+  :root{
+    --bg:#0f1115; --bg-elev:#161a21; --bg-side:#12151b; --text:#e6e9ef; --muted:#9aa4b2;
+    --border:#252b36; --accent:#5b9dff; --accent-soft:#1d2a44; --code-bg:#0b0d12;
+    --sidebar-w:312px; --maxw:860px;
+  }
+  html[data-theme="light"]{
+    --bg:#ffffff; --bg-elev:#f7f8fa; --bg-side:#f4f6f9; --text:#1c2330; --muted:#5b6573;
+    --border:#e3e8ef; --accent:#1f6feb; --accent-soft:#e7f0ff; --code-bg:#f6f8fa;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);
+    font:16px/1.7 -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  a{color:var(--accent);text-decoration:none}
+  a:hover{text-decoration:underline}
+
+  /* Topbar */
+  header.topbar{position:fixed;top:0;left:0;right:0;height:56px;z-index:30;
+    display:flex;align-items:center;gap:14px;padding:0 16px;
+    background:var(--bg-elev);border-bottom:1px solid var(--border)}
+  .brand{font-weight:700;letter-spacing:.2px;white-space:nowrap;cursor:pointer;font-size:15px}
+  .brand small{color:var(--muted);font-weight:500}
+  .topbar .spacer{flex:1}
+  #search{background:var(--bg);border:1px solid var(--border);color:var(--text);
+    border-radius:8px;padding:8px 12px;width:min(360px,40vw);font-size:14px;outline:none}
+  #search:focus{border-color:var(--accent)}
+  .iconbtn{background:var(--bg);border:1px solid var(--border);color:var(--text);
+    border-radius:8px;height:36px;min-width:40px;cursor:pointer;font-size:15px;padding:0 10px}
+  .iconbtn:hover{border-color:var(--accent)}
+  #menuBtn{display:none}
+
+  /* Sidebar */
+  aside.sidebar{position:fixed;top:56px;bottom:0;left:0;width:var(--sidebar-w);overflow-y:auto;
+    background:var(--bg-side);border-right:1px solid var(--border);padding:14px 10px 60px}
+  .nav-group>.nav-label{font-size:11px;text-transform:uppercase;letter-spacing:.08em;
+    color:var(--muted);font-weight:700;padding:14px 12px 6px}
+  .nav-node{user-select:none}
+  .nav-row{display:flex;align-items:center;gap:6px;border-radius:8px;padding:6px 10px;cursor:pointer;
+    color:var(--text);font-size:14px}
+  .nav-row:hover{background:var(--accent-soft)}
+  .nav-row.active{background:var(--accent-soft);color:var(--accent);font-weight:600}
+  .nav-row .twisty{width:16px;text-align:center;color:var(--muted);font-size:11px;transition:transform .15s}
+  .nav-row.collapsed .twisty{transform:rotate(-90deg)}
+  .nav-title{flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .nav-children{margin-left:14px;border-left:1px solid var(--border);padding-left:4px}
+  .nav-children.hidden{display:none}
+  .nav-row.lesson{color:var(--muted);font-size:13.5px}
+  .nav-row.lesson.active{color:var(--accent)}
+  .hit-hidden{display:none !important}
+
+  /* Content */
+  main{margin-left:var(--sidebar-w);margin-top:56px;padding:0}
+  .scrim{display:none}
+  article#doc{max-width:var(--maxw);margin:0 auto;padding:34px 28px 120px}
+  #doc h1{font-size:30px;line-height:1.25;margin:.2em 0 .5em;padding-bottom:.25em;border-bottom:1px solid var(--border)}
+  #doc h2{font-size:23px;margin:1.6em 0 .5em;padding-top:.2em}
+  #doc h3{font-size:18.5px;margin:1.4em 0 .4em}
+  #doc h4{font-size:16px;margin:1.2em 0 .3em;color:var(--muted)}
+  #doc p{margin:.7em 0}
+  #doc blockquote{margin:1em 0;padding:.4em 1em;border-left:3px solid var(--accent);
+    background:var(--accent-soft);border-radius:0 8px 8px 0;color:var(--text)}
+  #doc blockquote p{margin:.3em 0}
+  #doc pre{background:var(--code-bg);border:1px solid var(--border);border-radius:10px;
+    padding:14px 16px;overflow:auto;font-size:13.5px;line-height:1.55}
+  #doc code{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.88em}
+  #doc :not(pre)>code{background:var(--accent-soft);padding:.12em .4em;border-radius:5px;font-size:.85em}
+  #doc table{border-collapse:collapse;width:100%;margin:1em 0;font-size:14px;display:block;overflow-x:auto}
+  #doc th,#doc td{border:1px solid var(--border);padding:8px 12px;text-align:left;vertical-align:top}
+  #doc th{background:var(--bg-elev)}
+  #doc tr:nth-child(even) td{background:color-mix(in srgb,var(--bg-elev) 45%,transparent)}
+  #doc hr{border:none;border-top:1px solid var(--border);margin:2em 0}
+  #doc img{max-width:100%}
+  #doc .mermaid{background:var(--bg-elev);border:1px solid var(--border);border-radius:10px;
+    padding:16px;margin:1.2em 0;text-align:center;overflow-x:auto}
+  #doc ul,#doc ol{padding-left:1.4em}
+  #doc li{margin:.25em 0}
+  .doc-foot{max-width:var(--maxw);margin:0 auto;padding:18px 28px 50px;color:var(--muted);font-size:13px;
+    border-top:1px solid var(--border)}
+  .loading,.error{max-width:var(--maxw);margin:60px auto;padding:0 28px;color:var(--muted);text-align:center}
+  .error code{background:var(--accent-soft);padding:.15em .45em;border-radius:6px;color:var(--text)}
+
+  @media (max-width:900px){
+    :root{--sidebar-w:280px}
+    #menuBtn{display:inline-block}
+    aside.sidebar{transform:translateX(-100%);transition:transform .2s ease;z-index:25;box-shadow:0 0 40px rgba(0,0,0,.4)}
+    body.nav-open aside.sidebar{transform:none}
+    main{margin-left:0}
+    body.nav-open .scrim{display:block;position:fixed;inset:56px 0 0 0;background:rgba(0,0,0,.45);z-index:20}
+    #search{width:42vw}
+    .brand small{display:none}
+  }
+</style>
+</head>
+<body>
+<header class="topbar">
+  <button class="iconbtn" id="menuBtn" title="Menu" aria-label="Toggle navigation">☰</button>
+  <div class="brand" id="brand">Jetpack Compose Masterclass <small>· 2026</small></div>
+  <div class="spacer"></div>
+  <input id="search" type="search" placeholder="Search the course…" autocomplete="off" spellcheck="false" />
+  <button class="iconbtn" id="themeBtn" title="Toggle light/dark">🌙</button>
+</header>
+<div class="scrim" id="scrim"></div>
+<aside class="sidebar" id="sidebar"><div class="loading">Loading course…</div></aside>
+<main>
+  <article id="doc"><div class="loading">Loading…</div></article>
+  <div class="doc-foot" id="docFoot"></div>
+</main>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11/highlight.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+<script>
+const $ = s => document.querySelector(s);
+let COURSE = null, FLAT = [], currentPath = null;
+
+/* ---------- theme ---------- */
+function applyTheme(t){
+  document.documentElement.setAttribute('data-theme', t);
+  $('#themeBtn').textContent = t === 'dark' ? '🌙' : '☀️';
+  $('#hljs-theme').href = 'https://cdn.jsdelivr.net/npm/@highlightjs/cdn-assets@11/styles/' +
+    (t === 'dark' ? 'github-dark' : 'github') + '.min.css';
+  try{ mermaid.initialize({ startOnLoad:false, securityLevel:'loose',
+    theme: t === 'dark' ? 'dark' : 'default' }); }catch(e){}
+}
+function toggleTheme(){
+  const t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  localStorage.setItem('jcm-theme', t); applyTheme(t);
+  if(currentPath) loadDoc(currentPath, false); // re-render so mermaid picks up the theme
+}
+
+/* ---------- manifest + sidebar ---------- */
+async function init(){
+  applyTheme(localStorage.getItem('jcm-theme') || 'dark');
+  $('#themeBtn').onclick = toggleTheme;
+  $('#brand').onclick = () => navigate('README.md');
+  $('#menuBtn').onclick = () => document.body.classList.toggle('nav-open');
+  $('#scrim').onclick = () => document.body.classList.remove('nav-open');
+  $('#search').addEventListener('input', e => runSearch(e.target.value.trim().toLowerCase()));
+  window.addEventListener('hashchange', routeFromHash);
+
+  try{
+    const res = await fetch('course-data.json', {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP ' + res.status);
+    COURSE = await res.json();
+  }catch(err){
+    $('#sidebar').innerHTML = '';
+    $('#doc').innerHTML = errorHtml(err);
+    return;
+  }
+  if(COURSE.title){ $('#brand').innerHTML = COURSE.title.replace('— 2026 Edition','') +
+    '<small>· 2026</small>'; document.title = COURSE.title; }
+  buildSidebar();
+  routeFromHash();
+}
+
+function buildSidebar(){
+  const side = $('#sidebar'); side.innerHTML = '';
+  (COURSE.nav || []).forEach(group => {
+    const g = document.createElement('div'); g.className = 'nav-group';
+    const lbl = document.createElement('div'); lbl.className = 'nav-label'; lbl.textContent = group.label;
+    g.appendChild(lbl);
+    (group.children || []).forEach(node => g.appendChild(renderNode(node, 0)));
+    side.appendChild(g);
+  });
+}
+
+function renderNode(node, depth){
+  const wrap = document.createElement('div'); wrap.className = 'nav-node';
+  const row = document.createElement('div');
+  row.className = 'nav-row' + (depth > 0 ? ' lesson' : '');
+  const hasChildren = node.children && node.children.length;
+
+  const twisty = document.createElement('span'); twisty.className = 'twisty';
+  twisty.textContent = hasChildren ? '▾' : '';
+  row.appendChild(twisty);
+
+  const title = document.createElement('span'); title.className = 'nav-title'; title.textContent = node.title;
+  row.appendChild(title);
+  wrap.appendChild(row);
+
+  let kids = null;
+  if(hasChildren){
+    kids = document.createElement('div'); kids.className = 'nav-children hidden';
+    node.children.forEach(c => kids.appendChild(renderNode(c, depth + 1)));
+    wrap.appendChild(kids);
+    row.classList.add('collapsed');
+  }
+
+  row.addEventListener('click', e => {
+    e.stopPropagation();
+    if(node.path) navigate(node.path);
+    if(hasChildren && (!node.path || e.target === twisty)){
+      kids.classList.toggle('hidden'); row.classList.toggle('collapsed');
+    } else if(hasChildren && node.path){
+      // opening a parent doc also expands it
+      kids.classList.remove('hidden'); row.classList.remove('collapsed');
+    }
+  });
+
+  if(node.path) FLAT.push({path:node.path, title:node.title, row, kids, parentRows:[]});
+  return wrap;
+}
+
+/* ---------- routing + rendering ---------- */
+function navigate(path){
+  if(location.hash.slice(1) === path){ routeFromHash(); }
+  else location.hash = '#' + path;
+  document.body.classList.remove('nav-open');
+}
+function routeFromHash(){
+  const raw = decodeURIComponent(location.hash.slice(1)) || 'README.md';
+  const [file, frag] = raw.split('#');
+  loadDoc(file, true, frag);
+}
+
+async function loadDoc(path, scroll, frag){
+  currentPath = path;
+  setActive(path);
+  const doc = $('#doc');
+  doc.innerHTML = '<div class="loading">Loading…</div>';
+  let md;
+  try{
+    const res = await fetch(path, {cache:'no-store'});
+    if(!res.ok) throw new Error('HTTP ' + res.status + ' for ' + path);
+    md = await res.text();
+  }catch(err){ doc.innerHTML = errorHtml(err); return; }
+
+  // pull mermaid blocks out before markdown parsing
+  const blocks = [];
+  md = md.replace(/```mermaid\s*([\s\S]*?)```/g, (m, code) => {
+    const i = blocks.length; blocks.push(code.trim()); return '\n\nJCMERMAID' + i + 'END\n\n';
+  });
+
+  let html = marked.parse(md, {gfm:true, breaks:false});
+  html = html.replace(/<p>JCMERMAID(\d+)END<\/p>/g, (m,i) => mermaidDiv(blocks[i]))
+             .replace(/JCMERMAID(\d+)END/g, (m,i) => mermaidDiv(blocks[i]));
+  doc.innerHTML = html;
+
+  doc.querySelectorAll('pre code').forEach(c => {
+    if(!c.closest('.mermaid')){ try{ hljs.highlightElement(c); }catch(e){} }
+  });
+  try{ await mermaid.run({ nodes: doc.querySelectorAll('.mermaid') }); }catch(e){}
+  interceptLinks(doc, path);
+  updateFoot(path);
+
+  if(frag){ const el = document.getElementById(frag); if(el){ el.scrollIntoView(); return; } }
+  if(scroll){ window.scrollTo(0,0); document.querySelector('main').scrollTop = 0; }
+}
+
+function mermaidDiv(src){
+  const esc = src.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  return '<div class="mermaid">' + esc + '</div>';
+}
+
+function interceptLinks(container, base){
+  container.querySelectorAll('a[href]').forEach(a => {
+    const href = a.getAttribute('href');
+    if(!href) return;
+    if(/^(https?:|mailto:|tel:)/i.test(href)){ a.target='_blank'; a.rel='noopener'; return; }
+    if(href.startsWith('#')){ // in-page anchor
+      a.addEventListener('click', e => { e.preventDefault();
+        const el = document.getElementById(href.slice(1)); if(el) el.scrollIntoView(); });
+      return;
+    }
+    if(/\.md(#|$)/i.test(href)){
+      a.addEventListener('click', e => { e.preventDefault(); navigate(resolvePath(base, href)); });
+    }
+  });
+}
+function resolvePath(base, href){
+  try{
+    const u = new URL(href, 'app:///' + base);
+    return u.pathname.replace(/^\//,'') + (u.hash || '');
+  }catch(e){ return href; }
+}
+
+/* ---------- active highlight + search ---------- */
+function setActive(path){
+  FLAT.forEach(n => n.row.classList.toggle('active', n.path === path));
+  const hit = FLAT.find(n => n.path === path);
+  if(hit){ // expand ancestors
+    let el = hit.row.parentElement;
+    while(el){
+      if(el.classList && el.classList.contains('nav-children')){ el.classList.remove('hidden');
+        const r = el.previousElementSibling; if(r) r.classList.remove('collapsed'); }
+      el = el.parentElement;
+    }
+    hit.row.scrollIntoView({block:'nearest'});
+  }
+}
+function runSearch(q){
+  if(!q){ document.querySelectorAll('.nav-node').forEach(n => n.classList.remove('hit-hidden'));
+    document.querySelectorAll('.nav-children').forEach(k => k.classList.add('hidden'));
+    document.querySelectorAll('.nav-row').forEach(r => { if(r.querySelector('.twisty').textContent) r.classList.add('collapsed'); });
+    if(currentPath) setActive(currentPath); return; }
+  FLAT.forEach(n => {
+    const match = n.title.toLowerCase().includes(q) || n.path.toLowerCase().includes(q);
+    n.row.closest('.nav-node').classList.toggle('hit-hidden', !match);
+    if(match){ let el = n.row.parentElement;
+      while(el){ if(el.classList && el.classList.contains('nav-children')){ el.classList.remove('hidden');
+        el.closest('.nav-node').classList.remove('hit-hidden');
+        const r = el.previousElementSibling; if(r) r.classList.remove('collapsed'); } el = el.parentElement; } }
+  });
+}
+
+function updateFoot(path){
+  const i = FLAT.findIndex(n => n.path === path);
+  const foot = $('#docFoot'); foot.innerHTML = '';
+  if(i < 0) return;
+  const prev = FLAT[i-1], next = FLAT[i+1];
+  const mk = (n,label) => n ? `<a href="#${n.path}">${label}: ${n.title}</a>` : '';
+  foot.innerHTML = `<div style="display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap">
+    <span>${mk(prev,'← Prev')}</span><span>${mk(next,'Next →')}</span></div>`;
+}
+
+function errorHtml(err){
+  return `<div class="error"><h2>Couldn’t load content</h2>
+    <p>${String(err.message||err)}</p>
+    <p>This site reads the Markdown files over HTTP. Open it through a local server, not by double-clicking:</p>
+    <p><code>python -m http.server 8000</code> &nbsp;then open&nbsp; <code>http://localhost:8000</code></p>
+    <p>(or run <code>serve.bat</code> on Windows / <code>./serve.sh</code> on macOS·Linux)</p>
+    <p style="margin-top:18px">If <code>course-data.json</code> is missing, generate it with <code>python build-site.py</code>.</p></div>`;
+}
+init();
+</script>
+</body>
+</html>
