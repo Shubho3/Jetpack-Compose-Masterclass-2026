@@ -1,5 +1,9 @@
 # Jetpack Compose Masterclass — 2026 Edition
 
+[![Live site](https://img.shields.io/badge/live-course_site-2563eb)](https://shubho3.github.io/Jetpack-Compose-Masterclass-2026/) [![License: Apache 2.0](https://img.shields.io/badge/license-Apache_2.0-blue)](LICENSE) ![Modules](https://img.shields.io/badge/modules-20-brightgreen) ![Lessons](https://img.shields.io/badge/lessons-135-brightgreen) ![Words](https://img.shields.io/badge/words-471k-brightgreen)
+
+**[📖 View the live course website →](https://shubho3.github.io/Jetpack-Compose-Masterclass-2026/)** — hosted on GitHub Pages, nothing to install.
+
 > From "I can read XML" to **senior Android UI engineer** — declarative UI, Compose internals, performance, architecture, testing, security, and AI-assisted development, taught the way it's actually practiced in 2026.
 
 This is a complete, project-based, industry-level curriculum. Every lesson is built to the same standard: a concept explained at three levels (beginner → intermediate → senior), visual learning (ASCII + Mermaid + illustration prompts), three tiers of runnable code (beginner → intermediate → production), interview questions, and an AI-assisted workflow section.
@@ -16,7 +20,9 @@ python build-site.py        # generates course-data.json (re-run after adding co
 python -m http.server 8000  # then open http://localhost:8000
 ```
 
-Or just run **`serve.bat`** (Windows) / **`./serve.sh`** (macOS·Linux) — it does both steps. The site reads the Markdown files over HTTP, so it must be *served*, not opened by double-clicking `index.html`. It also deploys as-is to any static host (e.g. GitHub Pages).
+Or just run **`serve.bat`** (Windows) / **`./serve.sh`** (macOS·Linux) — it does both steps. The site reads the Markdown files over HTTP, so it must be *served*, not opened by double-clicking `index.html`.
+
+**Hosting:** on every push to `main`, a GitHub Actions workflow ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)) rebuilds the manifest and redeploys to **GitHub Pages** automatically — so for the live version you never run `build-site.py` by hand.
 
 ---
 
