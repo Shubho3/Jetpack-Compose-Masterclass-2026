@@ -100,6 +100,30 @@
     #search{width:42vw}
     .brand small{display:none}
   }
+
+  /* Skill-level selector (top bar) */
+  .level-seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden}
+  .level-seg button{background:var(--bg);color:var(--text);border:none;border-left:1px solid var(--border);
+    height:36px;min-width:40px;cursor:pointer;font-size:15px;line-height:1;padding:0 10px}
+  .level-seg button:first-child{border-left:none}
+  .level-seg button:hover{background:var(--accent-soft)}
+  .level-seg button.active{background:var(--accent-soft);box-shadow:inset 0 -2px 0 var(--accent)}
+
+  /* Collapsible skill-level blocks (built at render time) */
+  #doc .level-block{border:1px solid var(--border);border-left-width:3px;border-radius:10px;
+    margin:1.1em 0;overflow:hidden}
+  #doc .level-block[data-level="beginner"]{border-left-color:#3fb950}
+  #doc .level-block[data-level="intermediate"]{border-left-color:#d29922}
+  #doc .level-block[data-level="experienced"]{border-left-color:#f85149}
+  #doc .level-head{display:flex;align-items:center;gap:8px;cursor:pointer;user-select:none;
+    padding:10px 14px;background:var(--bg-elev);font-weight:600;font-size:16px}
+  #doc .level-head:hover{background:var(--accent-soft)}
+  #doc .level-head>h3,#doc .level-head>p{flex:1;margin:0;padding:0;border:none;font-size:inherit}
+  #doc .level-head .twisty{width:16px;text-align:center;color:var(--muted);font-size:11px;
+    transition:transform .15s}
+  #doc .level-block.collapsed .twisty{transform:rotate(-90deg)}
+  #doc .level-body{padding:2px 14px 6px}
+  #doc .level-block.collapsed .level-body{display:none}
 </style>
 </head>
 <body>
@@ -108,6 +132,11 @@
   <div class="brand" id="brand">Jetpack Compose Masterclass <small>· 2026</small></div>
   <div class="spacer"></div>
   <input id="search" type="search" placeholder="Search the course…" autocomplete="off" spellcheck="false" />
+  <div class="level-seg" id="levelSeg" role="group" aria-label="Skill level — choose which level expands">
+    <button type="button" data-level="beginner" title="Beginner — expand 🟢 blocks">🟢</button>
+    <button type="button" data-level="intermediate" title="Intermediate — expand 🟡 blocks">🟡</button>
+    <button type="button" data-level="experienced" title="Experienced — expand 🔴 blocks">🔴</button>
+  </div>
   <button class="iconbtn" id="themeBtn" title="Toggle light/dark">🌙</button>
 </header>
 <div class="scrim" id="scrim"></div>
@@ -123,6 +152,7 @@
 <script>
 const $ = s => document.querySelector(s);
 let COURSE = null, FLAT = [], currentPath = null;
+let currentLevel = localStorage.getItem('jcm-level') || 'beginner';
 
 /* ---------- theme ---------- */
 function applyTheme(t){
@@ -147,6 +177,10 @@ async function init(){
   $('#menuBtn').onclick = () => document.body.classList.toggle('nav-open');
   $('#scrim').onclick = () => document.body.classList.remove('nav-open');
   $('#search').addEventListener('input', e => runSearch(e.target.value.trim().toLowerCase()));
+  document.querySelectorAll('#levelSeg button').forEach(b => {
+    b.classList.toggle('active', b.dataset.level === currentLevel);
+    b.addEventListener('click', () => applyLevelSelection(b.dataset.level));
+  });
   window.addEventListener('hashchange', routeFromHash);
 
   try{
@@ -252,10 +286,81 @@ async function loadDoc(path, scroll, frag){
   });
   try{ await mermaid.run({ nodes: doc.querySelectorAll('.mermaid') }); }catch(e){}
   interceptLinks(doc, path);
+  setupLevelBlocks(doc);
+  applyLevelSelection(currentLevel);
   updateFoot(path);
 
   if(frag){ const el = document.getElementById(frag); if(el){ el.scrollIntoView(); return; } }
   if(scroll){ window.scrollTo(0,0); document.querySelector('main').scrollTop = 0; }
+}
+
+/* ---------- skill-level collapsible blocks ---------- */
+const LEVEL_BY_EMOJI = {'🟢':'beginner','🟡':'intermediate','🔴':'experienced'};
+function levelOf(text){
+  const m = (text || '').trim().match(/^(🟢|🟡|🔴)/u);
+  return m ? LEVEL_BY_EMOJI[m[1]] : null;
+}
+// A "marker" starts a level block: an <h3> led by a level emoji,
+// or a <p> whose leading <strong> is led by one (the interview-question style).
+function markerLevel(node){
+  if(node.nodeType !== 1) return null;
+  if(node.tagName === 'H3') return levelOf(node.textContent);
+  if(node.tagName === 'P'){
+    const s = node.firstElementChild;
+    if(s && s.tagName === 'STRONG' && node.firstChild === s) return levelOf(s.textContent);
+  }
+  return null;
+}
+
+// Wrap each level marker + its following content (up to the next marker / h1-h3 / hr)
+// in a collapsible <section class="level-block" data-level="…">.
+function setupLevelBlocks(doc){
+  const children = Array.from(doc.childNodes);
+  let headerNode = null, blockLevel = null, bodyNodes = [];
+  const flush = () => {
+    if(!headerNode) return;
+    const sec = document.createElement('section');
+    sec.className = 'level-block';
+    sec.dataset.level = blockLevel;
+    headerNode.parentNode.insertBefore(sec, headerNode);
+    const head = document.createElement('div'); head.className = 'level-head';
+    head.appendChild(headerNode);                    // moves the marker into the header
+    const tw = document.createElement('span'); tw.className = 'twisty'; tw.textContent = '▾';
+    head.appendChild(tw);
+    const body = document.createElement('div'); body.className = 'level-body';
+    bodyNodes.forEach(n => body.appendChild(n));      // moves body nodes in document order
+    sec.appendChild(head); sec.appendChild(body);
+    head.addEventListener('click', () => sec.classList.toggle('collapsed'));
+    headerNode = null; blockLevel = null; bodyNodes = [];
+  };
+  for(const node of children){
+    const lvl = markerLevel(node);
+    if(lvl){ flush(); headerNode = node; blockLevel = lvl; bodyNodes = []; continue; }
+    if(!headerNode) continue;                          // outside any block → leave in place
+    if(node.nodeType === 1 && ['H1','H2','H3','HR'].includes(node.tagName)){
+      flush();                                         // boundary closes the block; node stays put
+    } else {
+      bodyNodes.push(node);
+    }
+  }
+  flush();
+}
+
+// Expand the chosen level everywhere on the page; collapse the others (still clickable).
+function applyLevelSelection(level){
+  currentLevel = level;
+  localStorage.setItem('jcm-level', level);
+  document.querySelectorAll('#levelSeg button').forEach(b =>
+    b.classList.toggle('active', b.dataset.level === level));
+  const blocks = $('#doc').querySelectorAll('.level-block');
+  let anyMatch = false;
+  blocks.forEach(b => {
+    const match = b.dataset.level === level;
+    b.classList.toggle('collapsed', !match);
+    if(match) anyMatch = true;
+  });
+  // page has no block at this level (e.g. an all-🔴 lesson) → open the first so it isn't all closed
+  if(!anyMatch && blocks.length) blocks[0].classList.remove('collapsed');
 }
 
 function mermaidDiv(src){
